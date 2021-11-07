@@ -5,7 +5,7 @@ It often happes for Linux users to update system packages manually via terminal.
 
 If so it would be comfortable not to type user password every time but set it once and then run the automation scrips.
 
-You may use the given scripts for Fedora and Debian based systems and add them renamed according to ** *.sh** to system menu by editing **name.desktop** file and put them into your<br />**.local/share/applications**<br />folder.
+You may use the given scripts for Fedora and Debian based systems and add them to system menu by editing **name.desktop** file renamed according to **.sh** files and put them into your<br />**.local/share/applications**<br />folder.
 
 ><p>[Desktop Entry]<br />
 >Name=[name_of_service]<br />
