@@ -1,5 +1,5 @@
 # sh_pruning
-Scripts for quick installing current updates and autoclean Debian and Fedora systems
+<b>Scripts for quick installing current updates and autoclean Debian and Fedora systems</b>
 
 It often happes for Linux users to update system packages manually via terminal. It's possible to use automation scripts for this.
 
