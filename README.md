@@ -6,12 +6,10 @@ It often happes for Linux users to update system packages manually via terminal.
 If so it would be comfortable not to type user password every time but set it once and then run the automation scrips.
 You may use the given scripts for Fedora and Debian based systems and add them to system menu by editing **name.desktop** file.
 
-  [Desktop Entry]
-  Name=[name_of_service]
-  Exec=gnome-terminal -e [path_to_file_*.sh]
-  Comment=[name_of_service]
-  Terminal=false
-  Icon=[path_to_file_*.png]
-  Type=Application
-  
-  
+  >[Desktop Entry]
+  >Name=[name_of_service]
+  >Exec=gnome-terminal -e [path_to_file_*.sh]
+  >Comment=[name_of_service]
+  >Terminal=false
+  >Icon=[path_to_file_*.png]
+  >Type=Application
