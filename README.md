@@ -14,3 +14,6 @@ You may use the given scripts for Fedora and Debian based systems and add them t
 >Terminal=false<br />
 >Icon=[path_to_file_*.png]<br />
 >Type=Application</p>
+
+
+**passwriter.sh** file must be run first to write down user pass. Then use other scripts.
