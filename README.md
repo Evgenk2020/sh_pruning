@@ -12,4 +12,4 @@ Exec=gnome-terminal -e [path_to_file_*.sh]<br />
 Comment=[name_of_service]<br />
 Terminal=false<br />
 Icon=[path_to_file_*.png]<br />
-<p>Type=Application</p>
+Type=Application</p>
