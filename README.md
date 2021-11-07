@@ -13,3 +13,4 @@
 >Type=Application</p>
 >
 <p><b>passwriter.sh</b> file must be run first to write down user pass. Then use other scripts</p>
+<p>Running <b>passwriter.sh</b> without entering your password will erase the recorded pass file. Do it if you don't want someone else to run the scripts.</p>
