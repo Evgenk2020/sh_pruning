@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=[name_of_service]
+Exec=gnome-terminal -e [path_to_file_*.sh]
+Comment=[name_of_service]
+Terminal=false
+Icon=[path_to_file_*.png]
+Type=Application
