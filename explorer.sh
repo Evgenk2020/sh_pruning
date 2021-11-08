@@ -7,10 +7,12 @@ CR_LF="\n"
 
 #path to current dir and file
 TARGET_FILE=$(dirname $(realpath "$0"))	#dir
-TARGET_FILE=${TARGET_FILE}/usrpasswd	#file
+TARGET_FILE=${TARGET_FILE}/usrpwd	#file
+KEY_FILE=$(dirname $(realpath "$0")) #dir
+KEY_FILE=${KEY_FILE}/usrkey #file
 
 #check if the file is absent and echo error
-if ! [ -f $TARGET_FILE ]
+if ! [ -f $TARGET_FILE ] || ! [ -f $KEY_FILE ]
 then
     echo -e "Отсутствует необходимый файл записи..."
 	sleep 1
@@ -18,8 +20,8 @@ then
 fi
 
 #decrypting password from file
-ENCRYPTER=key_for_service
-PASS=$(cat $TARGET_FILE | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 \-salt -pass pass:ENCRYPTER)
+ENCRYPTER=$(cat $KEY_FILE)
+PASS=$(cat $TARGET_FILE | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:ENCRYPTER)
 
 #header
 echo -en ${COLOR_PURPLE}"*** ФАЙЛОВЫЙ МЕНЕДЖЕР ***"${COLOR_RESET}

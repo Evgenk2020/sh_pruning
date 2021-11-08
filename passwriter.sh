@@ -7,12 +7,15 @@ CR_LF="\n"
 
 #path to current dir and file
 TARGET_FILE=$(dirname $(realpath "$0")) #dir
-TARGET_FILE=${TARGET_FILE}/usrpasswd #file
+TARGET_FILE=${TARGET_FILE}/usrpwd #file
+KEY_FILE=$(dirname $(realpath "$0")) #dir
+KEY_FILE=${KEY_FILE}/usrkey #file
 
 #check if the file is present and remove it
-if [ -f $TARGET_FILE ]
+if [ -f $TARGET_FILE ] || [ -f $KEY_FILE ]
 then
     rm -rf $TARGET_FILE
+    rm -rf $KEY_FILE
 fi
 
 #header
@@ -31,8 +34,11 @@ do
 done
 
 #encrypting password into file
-ENCRYPTER=key_for_service    #encrypt key
-echo $PASSWD | openssl enc -aes-256-cbc -md sha512 -a -pbkdf2 -iter 100000 \-salt -pass pass:ENCRYPTER > $TARGET_FILE
+ENCRYPTER=$(openssl rand -base64 32)   #encrypt key
+echo $PASSWD | openssl enc -aes-256-cbc -md sha512 -a -pbkdf2 -iter 100000 -salt -pass pass:ENCRYPTER > $TARGET_FILE
+echo $ENCRYPTER > $KEY_FILE
+chmod 600 $TARGET_FILE
+chmod 600 $KEY_FILE
 echo -e ${CR_LF}
 
 #waighting for finish
