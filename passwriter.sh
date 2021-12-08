@@ -30,6 +30,9 @@ read -s -n1 BUFF
 [[ -n $BUFF ]]
 do
     PASSWD=$PASSWD$BUFF
+#**************************
+#Oh, shit! It works but it need to repair "Backspace" key event. It mustn't include this into string
+#**************************
     echo -n "$"
 done
 
