@@ -4,7 +4,7 @@
 COLOR_GREEN="\033[32;1m"
 COLOR_PURPLE="\033[35;1m"
 COLOR_RESET="\033[0m"
-CR_LF="\n"
+LF="\n"
 
 #path to current dir and file
 CURR=$(realpath "$0")
@@ -27,22 +27,22 @@ PASS=$(cat $TARGET_FILE | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -ite
 
 #header
 echo -en ${COLOR_PURPLE}"*** ОЧИСТКА ПАКЕТОВ ***"${COLOR_RESET}
-echo -e ${CR_LF}
+echo -e ${LF}
 
 #auto password entering
 echo $PASS | sudo -S tee
 echo "ввод пароля..."
-echo -en ${CR_LF}
+echo -en ${LF}
 
 #run dnf clean
-echo -en ${COLOR_GREEN}"Запуск dnf clean all..."${COLOR_RESET}${CR_LF}
+echo -en ${COLOR_GREEN}"Запуск dnf clean all..."${COLOR_RESET}${LF}
 sudo dnf clean all
-echo -en ${CR_LF}
+echo -en ${LF}
 
 #run dnf autoremove
-echo -en ${COLOR_GREEN}"Запуск dnf autoremove..."${COLOR_RESET}${CR_LF}
+echo -en ${COLOR_GREEN}"Запуск dnf autoremove..."${COLOR_RESET}${LF}
 sudo dnf autoremove
-echo -en ${CR_LF}
+echo -en ${LF}
 
 #waighting for finish
 echo -en ${COLOR_PURPLE}"Нажмите любую клавишу, чтобы закрыть окно..."${COLOR_RESET} ""

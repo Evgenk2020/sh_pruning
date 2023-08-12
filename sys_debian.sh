@@ -4,7 +4,7 @@
 COLOR_GREEN="\033[32;1m"
 COLOR_PURPLE="\033[35;1m"
 COLOR_RESET="\033[0m"
-CR_LF="\n"
+LF="\n"
 
 #path to current dir and file
 CURR=$(realpath "$0")
@@ -27,27 +27,27 @@ PASS=$(cat $TARGET_FILE | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -ite
 
 #header
 echo -en ${COLOR_PURPLE}"*** ОЧИСТКА ПАКЕТОВ ***"${COLOR_RESET}
-echo -e ${CR_LF}
+echo -e ${LF}
 
 #auto password entering
 echo $PASS | sudo -S tee
 echo "ввод пароля..."
-echo -en ${CR_LF}
+echo -en ${LF}
 
 #run apt update
-echo -en ${COLOR_GREEN}"Запуск apt update..."${COLOR_RESET}${CR_LF}
+echo -en ${COLOR_GREEN}"Запуск apt update..."${COLOR_RESET}${LF}
 sudo apt update
-echo -en ${CR_LF}
+echo -en ${LF}
 
 #run apt autoclean
-echo -en ${COLOR_GREEN}"Запуск apt autoclean..."${COLOR_RESET}${CR_LF}
+echo -en ${COLOR_GREEN}"Запуск apt autoclean..."${COLOR_RESET}${LF}
 sudo apt autoclean
-echo -en ${CR_LF}
+echo -en ${LF}
 
 #run apt autoremove
-echo -en ${COLOR_GREEN}"Запуск apt autoremove..."${COLOR_RESET}${CR_LF}
+echo -en ${COLOR_GREEN}"Запуск apt autoremove..."${COLOR_RESET}${LF}
 sudo apt autoremove
-echo -en ${CR_LF}
+echo -en ${LF}
 
 #waighting for finish
 echo -en ${COLOR_PURPLE}"Нажмите любую клавишу, чтобы закрыть окно..."${COLOR_RESET} ""

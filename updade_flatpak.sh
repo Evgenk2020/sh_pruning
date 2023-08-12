@@ -5,7 +5,7 @@ COLOR_GREEN="\033[32;1m"
 COLOR_PURPLE="\033[35;1m"
 COLOR_CYAN="\033[96;1m"
 COLOR_RESET="\033[0m"
-CR_LF="\n"
+LF="\n"
 
 #path to current dir and file
 CURR=$(realpath "$0")
@@ -28,12 +28,12 @@ PASS=$(cat $TARGET_FILE | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -ite
 
 #header
 echo -en ${COLOR_PURPLE}"*** ОБНОВЛЕНИЕ FLATPAK ***"${COLOR_RESET}
-echo -e ${CR_LF}
+echo -e ${LF}
 
 #auto password entering
 echo $PASS | sudo -S tee
 echo "ввод пароля..."
-echo -en ${CR_LF}
+echo -en ${LF}
 
 #ask to run update
 echo -en ${COLOR_CYAN}"Выполнить обновление? <Y/N>"${COLOR_RESET} ""
@@ -42,12 +42,12 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
 	exit
 fi
-echo -e ${CR_LF}
+echo -e ${LF}
 
 #starting flatpak upgrade
-echo -en ${COLOR_GREEN}"Запуск flatpak updade..."${COLOR_RESET}${CR_LF}
+echo -en ${COLOR_GREEN}"Запуск flatpak updade..."${COLOR_RESET}${LF}
 sudo flatpak update
-echo -en ${CR_LF}
+echo -en ${LF}
 
 #waighting for finish
 echo -en ${COLOR_PURPLE}"Нажмите любую клавишу, чтобы закрыть окно..."${COLOR_RESET} ""
