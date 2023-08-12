@@ -8,10 +8,11 @@ COLOR_RESET="\033[0m"
 CR_LF="\n"
 
 #path to current dir and file
-TARGET_FILE=$(dirname $(realpath "$0"))	#dir
-TARGET_FILE=${TARGET_FILE}/usrpwd	#file
-KEY_FILE=$(dirname $(realpath "$0")) #dir
-KEY_FILE=${KEY_FILE}/usrkey #file
+CURR=$(realpath "$0")
+CURR=$(dirname $CURR)
+
+TARGET_FILE=${CURR}/usrpwd	#file
+KEY_FILE=${CURR}/usrkey #file
 
 #check if the file is absent and echo error
 if ! [ -f $TARGET_FILE ] || ! [ -f $KEY_FILE ]

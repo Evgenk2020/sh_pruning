@@ -6,10 +6,11 @@ COLOR_RESET="\033[0m"
 CR_LF="\n"
 
 #path to current dir and file
-TARGET_FILE=$(dirname $(realpath "$0")) #dir
-TARGET_FILE=${TARGET_FILE}/usrpwd #file
-KEY_FILE=$(dirname $(realpath "$0")) #dir
-KEY_FILE=${KEY_FILE}/usrkey #file
+CURR=$(realpath "$0")
+CURR=$(dirname $CURR)
+
+TARGET_FILE=${CURR}/usrpwd #file
+KEY_FILE=${CURR}/usrkey #file
 
 #check if the file is present and remove it
 if [ -f $TARGET_FILE ] || [ -f $KEY_FILE ]
@@ -26,14 +27,19 @@ echo -e ${CR_LF}
 PASSWD=""
 echo -n "Введите пароль пользователя: "
 while
-read -s -n1 BUFF
-[[ -n $BUFF ]]
+    read -s -n1 BUFFER
+    [[ -n $BUFFER ]]
 do
-    PASSWD=$PASSWD$BUFF
-#**************************
-#Oh, shit! It works but it need to repair "Backspace" key event. It mustn't include this into string
-#**************************
-    echo -n "$"
+    if [ "$BUFFER" = $'\177' ]
+    then
+        PASSWD=""
+        echo -en '\n'
+        echo "password is null"
+        echo -n "Введите ноовый пароль пользователя: "
+    else
+        PASSWD=$PASSWD$BUFFER
+        echo -n '#'
+    fi
 done
 
 #encrypting password into file
