@@ -1,0 +1,1 @@
+1. Put the image file resized to your screen size into this folder.

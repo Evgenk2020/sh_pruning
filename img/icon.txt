@@ -1,0 +1,8 @@
+1. Put the icon .png file resized to 128x128 px into this folder.
+
+
+
+2. Then add path to .png image in your .desktop file
+
+e.g.
+Icon=[path_to_your_file]/[file_name].png

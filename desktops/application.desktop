@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=[application_name]
+Exec=[path_to_application]
+Comment=[add_you_comment_here]
+Terminal=true
+Icon=[path_to_icon].png
+Type=Application
